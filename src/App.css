@@ -1,6 +1,10 @@
 .gradient-background {
   background-image: linear-gradient(to right, #FFC0CB, #87CEFA);
 }
+body {
+  background: linear-gradient(135deg, #F8B195, #F67280, #C06C84, #6C5B7B, #355C7D);
+}
+
 
 .button-animation {
   transition: transform 0.5s;
