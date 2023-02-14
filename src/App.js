@@ -14,12 +14,12 @@ import {
 } from "reactstrap";
 
 const data = [
-  { id: 1, pelicula: "Naruto", autor: "Naruto", Año:"" },
-  { id: 2, pelicula: "Goku", autor: "Dragon Ball",Año:"" },
-  { id: 3, pelicula: "Kenshin Himura", autor: "Rurouni Kenshin",Año:"" },
-  { id: 4, pelicula: "Monkey D. Luffy", autor: "One Piece",Año:"" },
-  { id: 5, pelicula: "Edward Elric", autor: "Fullmetal Alchemist: Brotherhood",Año:""},
-  { id: 6, pelicula: "Seto Kaiba", autor: "Yu-Gi-Oh!",Año:"" },
+  { id: 1, pelicula: "Naruto", autor: "Naruto", año:"",idioma:"" },
+  { id: 2, pelicula: "Goku", autor: "Dragon Ball",año:"",idioma:"" },
+  { id: 3, pelicula: "Kenshin Himura", autor: "Rurouni Kenshin",año:"",idioma:"" },
+  { id: 4, pelicula: "Monkey D. Luffy", autor: "One Piece",año:"" },
+  { id: 5, pelicula: "Edward Elric", autor: "Fullmetal Alchemist: Brotherhood",año:"",idioma:""},
+  { id: 6, pelicula: "Seto Kaiba", autor: "Yu-Gi-Oh!",año:"1893",idioma:"UK" },
 ];
 
 class App extends React.Component {
@@ -30,8 +30,9 @@ class App extends React.Component {
     form: {
       id: "",
       autor:"",
-      Pelicula: "",
+      pelicula: "",
       año: "",
+      idioma:"",
     },
   };
 
@@ -63,6 +64,7 @@ class App extends React.Component {
       if (dato.id == registro.id) {
         arreglo[contador].pelicula = dato.pelicula;
         arreglo[contador].autor = dato.autor;
+        arreglo[contador].año = dato.año;
       }
       contador++;
     });
@@ -83,15 +85,17 @@ class App extends React.Component {
       this.setState({ data: arreglo, modalActualizar: false });
     }
   };
-
   insertar= ()=>{
     var valorNuevo= {...this.state.form};
     valorNuevo.id=this.state.data.length+1;
     var lista= this.state.data;
-    lista.push(valorNuevo);
+    lista.push({
+      ...valorNuevo,
+      autor: valorNuevo.autor || "desconocido",
+      idioma: valorNuevo.idioma || "desconocido"
+    });
     this.setState({ modalInsertar: false, data: lista });
   }
-
   handleChange = (e) => {
     this.setState({
       form: {
@@ -117,6 +121,7 @@ class App extends React.Component {
                 <th>Pelicula</th>
                 <th>autor</th>
                 <th>Año</th>
+                <th>idioma</th>
               </tr>
             </thead>
 
@@ -126,7 +131,8 @@ class App extends React.Component {
                   <td>{dato.id}</td>
                   <td>{dato.pelicula}</td>
                   <td>{dato.autor}</td>
-                  <td>{dato.Año}</td>
+                  <td>{dato.año}</td>
+                  <td>{dato.idioma}</td>
                   <td>
                     <Button
                       color="primary"
@@ -170,7 +176,7 @@ class App extends React.Component {
                 name="pelicula"
                 type="text"
                 onChange={this.handleChange}
-                value={this.state.form.Pelicula}
+                value={this.state.form.pelicula}
               />
             </FormGroup>
             <FormGroup>
@@ -196,6 +202,18 @@ class App extends React.Component {
                 type="Numbers"
                 onChange={this.handleChange}
                 value={this.state.form.año}
+              />
+            </FormGroup>
+            <FormGroup>
+              <label>
+                idioma: 
+              </label>
+              <input
+                className="form-control"
+                name="idioma"
+                type="text"
+                onChange={this.handleChange}
+                value={this.state.form.idioma}
               />
             </FormGroup>
           </ModalBody>
@@ -267,7 +285,18 @@ class App extends React.Component {
               </label>
               <input
                 className="form-control"
-                name="Año"
+                name="año"
+                type="text"
+                onChange={this.handleChange}
+              />
+            </FormGroup>
+            <FormGroup>
+              <label>
+                Idioma 
+              </label>
+              <input
+                className="form-control"
+                name="Idioma"
                 type="text"
                 onChange={this.handleChange}
               />
