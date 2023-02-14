@@ -1,10 +1,10 @@
 .gradient-background {
   background-image: linear-gradient(to right, #FFC0CB, #87CEFA);
 }
+
 body {
   background: linear-gradient(135deg, #F8B195, #F67280, #C06C84, #6C5B7B, #355C7D);
 }
-
 
 .button-animation {
   transition: transform 0.5s;
@@ -19,9 +19,11 @@ body {
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 30vmin;
   pointer-events: none;
+  margin-bottom: 2em;
 }
+
 .degradado {
   background: linear-gradient(to bottom right, #d3c6c1, #e5d5cf);
   animation: degradado 5s ease-in-out infinite alternate;
@@ -46,6 +48,28 @@ body {
 
 .App-link {
   color: #61dafb;
+}
+
+@media screen and (max-width: 768px) {
+  .App-logo {
+    height: 20vmin;
+  }
+
+  .App-header {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App-header {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .App-header {
+    font-size: 1em;
+  }
 }
 
 @keyframes App-logo-spin {
