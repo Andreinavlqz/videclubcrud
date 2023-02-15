@@ -14,12 +14,8 @@ import {
 } from "reactstrap";
 
 const data = [
-  {  },
-  {  },
-  {  },
-  {  },
-  { },
-  {  },
+  
+  
 ];
 
 class App extends React.Component {
