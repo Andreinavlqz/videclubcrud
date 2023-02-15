@@ -91,8 +91,8 @@ class App extends React.Component {
     var lista= this.state.data;
     lista.push({
       ...valorNuevo,
-      autor: valorNuevo.autor || "desconocido",
-      idioma: valorNuevo.idioma || "desconocido"
+      autor: valorNuevo.autor || "",
+      idioma: valorNuevo.idioma || ""
     });
     this.setState({ modalInsertar: false, data: lista });
   }
