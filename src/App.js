@@ -14,12 +14,12 @@ import {
 } from "reactstrap";
 
 const data = [
-  { id: 1, pelicula: "Naruto", autor: "Naruto", año:"",idioma:"" },
-  { id: 2, pelicula: "Goku", autor: "Dragon Ball",año:"",idioma:"" },
-  { id: 3, pelicula: "Kenshin Himura", autor: "Rurouni Kenshin",año:"",idioma:"" },
-  { id: 4, pelicula: "Monkey D. Luffy", autor: "One Piece",año:"" },
-  { id: 5, pelicula: "Edward Elric", autor: "Fullmetal Alchemist: Brotherhood",año:"",idioma:""},
-  { id: 6, pelicula: "Seto Kaiba", autor: "Yu-Gi-Oh!",año:"1893",idioma:"UK" },
+  {  },
+  {  },
+  {  },
+  {  },
+  { },
+  {  },
 ];
 
 class App extends React.Component {
