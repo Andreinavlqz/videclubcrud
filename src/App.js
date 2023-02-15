@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -13,14 +12,7 @@ import {
   ModalFooter,
 } from "reactstrap";
 
-const data = [
-  {  },
-  {  },
-  {  },
-  {  },
-  { },
-  {  },
-];
+const data = [];
 
 class App extends React.Component {
   state = {
@@ -29,10 +21,10 @@ class App extends React.Component {
     modalInsertar: false,
     form: {
       id: "",
-      autor:"",
+      autor: "",
       pelicula: "",
-      año: "",
-      idioma:"",
+      anio: "",
+      idioma: "",
     },
   };
 
@@ -61,10 +53,11 @@ class App extends React.Component {
     var contador = 0;
     var arreglo = this.state.data;
     arreglo.map((registro) => {
-      if (dato.id == registro.id) {
+      if (dato.id === registro.id) {
         arreglo[contador].pelicula = dato.pelicula;
         arreglo[contador].autor = dato.autor;
-        arreglo[contador].año = dato.año;
+        arreglo[contador].anio = dato.anio;
+        arreglo[contador].idioma = dato.idioma;
       }
       contador++;
     });
@@ -72,12 +65,14 @@ class App extends React.Component {
   };
 
   eliminar = (dato) => {
-    var opcion = window.confirm("Estás Seguro que deseas Eliminar el elemento "+dato.id);
-    if (opcion == true) {
+    var opcion = window.confirm(
+      "Estás Seguro que deseas Eliminar el elemento " + dato.id
+    );
+    if (opcion === true) {
       var contador = 0;
       var arreglo = this.state.data;
       arreglo.map((registro) => {
-        if (dato.id == registro.id) {
+        if (dato.id === registro.id) {
           arreglo.splice(contador, 1);
         }
         contador++;
@@ -85,17 +80,15 @@ class App extends React.Component {
       this.setState({ data: arreglo, modalActualizar: false });
     }
   };
-  insertar= ()=>{
-    var valorNuevo= {...this.state.form};
-    valorNuevo.id=this.state.data.length+1;
-    var lista= this.state.data;
-    lista.push({
-      ...valorNuevo,
-      autor: valorNuevo.autor || "",
-      idioma: valorNuevo.idioma || ""
-    });
+
+  insertar = () => {
+    var valorNuevo = { ...this.state.form };
+    valorNuevo.id = this.state.data.length + 1;
+    var lista = this.state.data;
+    lista.push(valorNuevo);
     this.setState({ modalInsertar: false, data: lista });
-  }
+  };
+
   handleChange = (e) => {
     this.setState({
       form: {
