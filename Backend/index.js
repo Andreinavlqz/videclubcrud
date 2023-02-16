@@ -8,7 +8,7 @@ mongoose.set('strictQuery', true);
 const PORT = 3030;
 const app = express();
 
-const todoRoutes = require("./routes/todoRoutes");
+const movieRoutes = require("./routes/movieRoutes");
 
 app.use(express.json());
 app.use(cors());
@@ -19,7 +19,7 @@ mongoose
   .connect( process.env.MONGODB_URI, connectionOptions)
   .then(() => console.log("Connected successfully"))
   .catch((err) => console.error(err));
-app.use("/movie",todoRoutes);
+   app.use("/movie",movieRoutes);
 
 app.listen(PORT, () =>{
     console.log("the server is listening on port " + PORT);

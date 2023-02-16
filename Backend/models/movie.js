@@ -9,4 +9,7 @@ const movieSchema = new mongoose.Schema({
   mov_rel_country: String
 })
 
-module.exports = mongoose.model("movie", movieSchema)
+ module.exports = mongoose.model("movie", movieSchema)
+
+
+
