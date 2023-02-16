@@ -1,4 +1,6 @@
 import React from "react";
+import  "./Api/index"
+
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,6 +15,7 @@ import {
   ModalFooter,
 } from "reactstrap";
 
+<<<<<<< HEAD
 // const data = [
 //   { id: 1, pelicula: "Naruto", autor: "Naruto", año:"",idioma:"" },
 //   { id: 2, pelicula: "Goku", autor: "Dragon Ball",año:"",idioma:"" },
@@ -21,6 +24,12 @@ import {
 //   { id: 5, pelicula: "Edward Elric", autor: "Fullmetal Alchemist: Brotherhood",año:"",idioma:""},
 //   { id: 6, pelicula: "Seto Kaiba", autor: "Yu-Gi-Oh!",año:"1893",idioma:"UK" },
 // ];
+=======
+const data = [
+  
+  
+];
+>>>>>>> 3654c4d4b8230b7fee40432996f642a491da54b1
 
 class App extends React.Component {
   state = {
@@ -91,8 +100,8 @@ class App extends React.Component {
     var lista= this.state.data;
     lista.push({
       ...valorNuevo,
-      autor: valorNuevo.autor || "desconocido",
-      idioma: valorNuevo.idioma || "desconocido"
+      autor: valorNuevo.autor || "",
+      idioma: valorNuevo.idioma || ""
     });
     this.setState({ modalInsertar: false, data: lista });
   }
